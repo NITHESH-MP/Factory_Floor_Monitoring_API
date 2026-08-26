@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.orm import sessionmaker
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -15,8 +15,6 @@ sessionLocal = sessionmaker(
     bind= engine
 )
 
-# Base Model -> With DB
-Base = declarative_base()
 
 #Session Allocation
 def get_db():

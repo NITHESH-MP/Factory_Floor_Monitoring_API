@@ -25,6 +25,8 @@ services:
     build: ./app
     env_file:
       - app/.env
+    ports:
+      - 8000:8000
     
     depends_on:
       postgres:
@@ -32,6 +34,8 @@ services:
 
   flask-api:
     build: ./flask-api
+    ports:
+      - 5000:5000
 
     depends_on:
       postgres:
@@ -49,6 +53,15 @@ services:
     depends_on:
       - fast-api
       - flask-api
-  
+
+  prometheus:
+    image: prom/prometheus
+    
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    
+
 volumes:
   postgres-data:

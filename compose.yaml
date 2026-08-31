@@ -25,6 +25,8 @@ services:
     build: ./app
     env_file:
       - app/.env
+    ports:
+      - 8000:8000
     
     depends_on:
       postgres:
@@ -32,6 +34,8 @@ services:
 
   flask-api:
     build: ./flask-api
+    ports:
+      - 5000:5000
 
     depends_on:
       postgres:
@@ -49,6 +53,36 @@ services:
     depends_on:
       - fast-api
       - flask-api
+
+  prometheus:
+    image: prom/prometheus
   
+    ports:
+      - "9090:9090"
+
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+
+
+  grafana:
+    image: grafana/grafana
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+
+    depends_on:
+      - prometheus
+    
+
 volumes:
   postgres-data:
+  prometheus-data:
+  grafana-data:

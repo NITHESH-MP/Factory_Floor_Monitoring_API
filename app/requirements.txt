@@ -8,3 +8,5 @@ pwdlib
 pwdlib[argon2]
 python-multipart
 logging
+prometheus-client
+prometheus-fastapi-instrumentator

@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from prometheus_fastapi_instrumentator import Instrumentator
 
 from routes.auth_route import auth_router
 from routes.machines_route import machine_router
@@ -11,17 +12,17 @@ def create_app():
     setup_logging()
     init_db()
     
+       
     app = FastAPI(
         title="Factory Floor Monitoring API",
         description= "API for monitoring and managing factor machines",
         version="1.0.0"
     )
-
+    
+    Instrumentator().instrument(app).expose(app)
 
     # Mapping Exception and it's handler
     register_exception_handlers(app)
-
-
 
     app.include_router(auth_router)
     app.include_router(machine_router)

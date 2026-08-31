@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "fast-api"
+
+    # scheme: https
+    # metrics_path: /monitoring
+
+    static_configs:
+      - targets: 
+        - "fast-api:8000"
+    
+  # - job_name: "flask-api"
+  #   static_configs:
+  #     - targets:
+  #       - "flask-api:5000"

@@ -8,27 +8,27 @@ class Repository:
         self.db = db
     
     # CREATE METHOD
-    def create(self, model):
+    def create(self, model_obj):
         try:
-            self.db.add(model)
+            self.db.add(model_obj)
             self.db.commit()
-            self.db.refresh(model)
+            self.db.refresh(model_obj)
         except Exception:
             self.db.rollback()
             raise 
         
-        return model
+        return model_obj
     
     
     # READ METHOD
-    def read(self, model, **feilds):
+    def read(self, model_obj, **feilds):
         try:
-            statement = select(model)
+            statement = select(model_obj)
             
             for feild, value in feilds.items():
                 if value is not None:
                     statement = statement.where(
-                        getattr(model, feild) == value
+                        getattr(model_obj, feild) == value
                     )
                     
             result = self.db.execute(statement)
@@ -40,21 +40,21 @@ class Repository:
     
             
     # UPDATE METHOD
-    def update(self, model):
+    def update(self, model_obj):
         try:
             self.db.commit()
-            self.db.refresh(model)
+            self.db.refresh(model_obj)
         except Exception:
             self.db.rollback()
             raise
         
-        return model
+        return model_obj
     
     
     # DELETE METHOD
-    def delete(self, model):
+    def delete(self, model_obj):
         try:
-            self.db.delete(model)
+            self.db.delete(model_obj)
             self.db.commit()
         except Exception:
             self.db.rollback()

@@ -24,11 +24,13 @@ def setup_logging():
         "%(message)s"
     )
 
+    # Definition of Formatter
     formatter = logging.Formatter(
         log_format,
         datefmt="%Y-%m-%d %H:%M:%S"
     )
 
+    # Creation of logger
     logger = logging.getLogger()
 
     logger.setLevel(LOG_LEVEL)

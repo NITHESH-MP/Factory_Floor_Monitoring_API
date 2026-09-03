@@ -13,16 +13,20 @@ expire_time = os.getenv("EXPIRE_TIME")
 
 password_hash = PasswordHash.recommended()
 
+# Password Verification at login
 def verify_password(plain_password, hashed_password):
     
     return password_hash.verify(
         plain_password,
         hashed_password
     )
-    
+
+# Password hashing
 def hash_password(password):
     return password_hash.hash(password)
 
+
+# Create Access Token
 def create_access_token(username):
     
     expire = datetime.now(timezone.utc) + timedelta(
@@ -46,6 +50,8 @@ oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl="/api/auth/login"
 )
 
+
+# Verify User using Token
 def get_current_user(
     token: str = Depends(oauth2_scheme)
 ):

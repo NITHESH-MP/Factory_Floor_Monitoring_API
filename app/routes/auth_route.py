@@ -19,11 +19,14 @@ auth_router = APIRouter(
 )
 
 
+#Registeration:
 @auth_router.post("/register")
 def register(
     user_data: RegisterRequest,
     db: Session = Depends(get_db)
 ):
+    
+    # Checks for existing user
     existing_user = db.query(User).filter(
         User.username == user_data.username
     ).first()
@@ -38,6 +41,7 @@ def register(
         user_data.password
     )
 
+    #Converting python obj -> SQLAlchemy obj
     user = User(
         username=user_data.username,
         hashed_password=hashed_password
@@ -52,6 +56,8 @@ def register(
         "username": user.username
     }
 
+
+# Login 
 @auth_router.post("/login")
 def login(
     form_data: OAuth2PasswordRequestForm = Depends(),

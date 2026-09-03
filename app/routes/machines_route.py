@@ -100,7 +100,7 @@ def update_machines(
     status_code=200    
 )
 def patch_machines(
-    machine_id: int, 
+    machine_id: int,
     machine_data: MachinePatch,
     
     db : Session = Depends(get_db)

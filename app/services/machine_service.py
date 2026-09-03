@@ -67,6 +67,7 @@ class MachineService:
         
         repository = Repository(db)
         
+        # Checks for existing machine
         existing_machine = repository.read(
             Machine, 
             name = machine_data.name
@@ -80,6 +81,7 @@ class MachineService:
             
             raise DuplicateMachineError(machine_data.name)
 
+        # Conversion from py obj -> SQLAlchemy obj
         machine_obj = Machine(
             name = machine_data.name,
             machine_type = machine_data.machine_type,

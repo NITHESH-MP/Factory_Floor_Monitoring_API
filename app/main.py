@@ -12,21 +12,23 @@ def create_app():
     setup_logging()
     init_db()
     
-       
+    #Calling FASTAPI
     app = FastAPI(
         title="Factory Floor Monitoring API",
         description= "API for monitoring and managing factor machines",
         version="1.0.0"
     )
     
+    # Addition of instrumentation to fast-api
     Instrumentator().instrument(app).expose(app)
 
     # Mapping Exception and it's handler
     register_exception_handlers(app)
 
+    #including routers
     app.include_router(auth_router)
     app.include_router(machine_router)
-    
+        
     return app
 
 app = create_app()

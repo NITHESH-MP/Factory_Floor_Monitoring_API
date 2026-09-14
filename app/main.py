@@ -6,6 +6,7 @@ from routes.machines_route import machine_router
 from exceptions.handlers import register_exception_handlers
 from logging_config import setup_logging
 from database.init_db import init_db
+from utils.custom_openapi import custom_openapi
 
 
 def create_app():
@@ -16,7 +17,7 @@ def create_app():
     app = FastAPI(
         title="Factory Floor Monitoring API",
         description= "API for monitoring and managing factor machines",
-        version="1.0.0"
+        version="1.0.0",
     )
     
     # Addition of instrumentation to fast-api
@@ -28,6 +29,8 @@ def create_app():
     #including routers
     app.include_router(auth_router)
     app.include_router(machine_router)
+    
+    custom_openapi(app)
         
     return app
 

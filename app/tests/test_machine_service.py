@@ -36,4 +36,5 @@ def test_create_machine_duplicate_name():
             db,
             machine_data
         )
+        
     

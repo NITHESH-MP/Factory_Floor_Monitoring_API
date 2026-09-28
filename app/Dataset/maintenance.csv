@@ -1,0 +1,10 @@
+machine_id,trigger_cycle,triggered_at,reason,assigned_to,status,resolved_at
+M01,2,2024-07-01 17:40:00,"Health warning: temperature=81.15, vibration=1.001",technician_01,Resolved,2024-07-01 18:00:00
+M03,2,2024-07-01 14:48:00,"Health warning: temperature=80.24, vibration=1.236",technician_01,Resolved,2024-07-01 15:08:00
+M07,1,2024-07-01 09:01:00,"Health warning: temperature=80.35, vibration=1.243",technician_01,Resolved,2024-07-01 09:21:00
+M08,1,2024-07-01 10:03:00,"Health warning: temperature=80.39, vibration=1.242",technician_01,Resolved,2024-07-01 10:23:00
+M09,1,2024-07-01 09:37:00,"Health warning: temperature=83.43, vibration=1.131",technician_01,Resolved,2024-07-01 09:57:00
+M11,3,2024-07-01 11:45:00,"Health warning: temperature=83.73, vibration=1.253",technician_01,Resolved,2024-07-01 12:05:00
+M13,2,2024-07-01 13:34:00,"Health warning: temperature=80.14, vibration=1.185",technician_01,Resolved,2024-07-01 13:54:00
+M16,2,2024-07-01 09:51:00,"Health warning: temperature=80.88, vibration=1.318",technician_01,Resolved,2024-07-01 10:11:00
+M20,3,2024-07-01 12:21:00,"Health warning: temperature=81.08, vibration=1.256",technician_01,Resolved,2024-07-01 12:41:00

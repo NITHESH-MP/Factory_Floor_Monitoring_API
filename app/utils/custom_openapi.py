@@ -22,6 +22,9 @@ def custom_openapi(app):
         elif path.startswith("/api/machines"):
             public_path = path.replace("/api/machines", "/machines", 1)
 
+        elif path.startswith("/api/maintenance"):
+            public_path = path.replace("/api/maintenance", "/maintenance", 1)
+        
         public_paths[public_path] = path_item
 
     openapi_schema["paths"] = public_paths

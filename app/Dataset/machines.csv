@@ -1,0 +1,21 @@
+machine_id,name,machine_type,status,latest_health
+M01,Machine M01,Industrial Equipment,Maintenance,Warning
+M02,Machine M02,Industrial Equipment,Idle,Healthy
+M03,Machine M03,Industrial Equipment,Maintenance,Warning
+M04,Machine M04,Industrial Equipment,Idle,Healthy
+M05,Machine M05,Industrial Equipment,Idle,Healthy
+M06,Machine M06,Industrial Equipment,Idle,Healthy
+M07,Machine M07,Industrial Equipment,Idle,Healthy
+M08,Machine M08,Industrial Equipment,Maintenance,Warning
+M09,Machine M09,Industrial Equipment,Idle,Healthy
+M10,Machine M10,Industrial Equipment,Idle,Healthy
+M11,Machine M11,Industrial Equipment,Idle,Healthy
+M12,Machine M12,Industrial Equipment,Idle,Healthy
+M13,Machine M13,Industrial Equipment,Idle,Healthy
+M14,Machine M14,Industrial Equipment,Idle,Healthy
+M15,Machine M15,Industrial Equipment,Idle,Healthy
+M16,Machine M16,Industrial Equipment,Maintenance,Warning
+M17,Machine M17,Industrial Equipment,Idle,Healthy
+M18,Machine M18,Industrial Equipment,Idle,Healthy
+M19,Machine M19,Industrial Equipment,Idle,Healthy
+M20,Machine M20,Industrial Equipment,Idle,Healthy
